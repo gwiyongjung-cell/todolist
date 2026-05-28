@@ -110,17 +110,17 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `backend/` 디렉토리 `npm init` 및 의존성 설치 (`express`, `pg`, `bcrypt`, `jsonwebtoken`, `dotenv`, `cors`)
-- [ ] `backend/src/config/env.js` 작성
-  - [ ] `process.env` 로딩 및 필수값 검증 (없으면 프로세스 종료)
-  - [ ] `NODE_ENV`, `PORT`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `CORS_ORIGIN` 포함
-- [ ] `backend/src/utils/hashUtils.js` 작성 (`bcrypt` 해싱/비교 함수)
-- [ ] `backend/src/utils/jwtUtils.js` 작성 (JWT 생성/검증 함수)
-- [ ] `backend/src/constants/statusConstants.js` 작성 (`TODO`, `IN_PROGRESS`, `DONE`, `LIGHT`, `DARK`)
-- [ ] `backend/src/middlewares/errorMiddleware.js` 작성 (전역 에러 핸들러)
-- [ ] `backend/src/app.js` 작성 (CORS, JSON 파싱, 라우터 등록, 에러 미들웨어 등록)
-- [ ] `backend/src/index.js` 진입점 작성 (서버 listen)
-- [ ] `node backend/src/index.js` 실행 시 서버가 정상 기동됨
+- [x] `backend/` 디렉토리 `npm init` 및 의존성 설치 (`express`, `pg`, `bcryptjs`, `jsonwebtoken`, `dotenv`, `cors`)
+- [x] `backend/src/config/env.js` 작성
+  - [x] `process.env` 로딩 및 필수값 검증 (없으면 프로세스 종료)
+  - [x] `NODE_ENV`, `PORT`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `CORS_ORIGIN` 포함
+- [x] `backend/src/utils/hashUtils.js` 작성 (`bcrypt` 해싱/비교 함수)
+- [x] `backend/src/utils/jwtUtils.js` 작성 (JWT 생성/검증 함수)
+- [x] `backend/src/constants/statusConstants.js` 작성 (`TODO`, `IN_PROGRESS`, `DONE`, `LIGHT`, `DARK`)
+- [x] `backend/src/middlewares/errorMiddleware.js` 작성 (전역 에러 핸들러)
+- [x] `backend/src/app.js` 작성 (CORS, JSON 파싱, 라우터 등록, 에러 미들웨어 등록)
+- [x] `backend/src/index.js` 진입점 작성 (서버 listen)
+- [x] `node backend/src/index.js` 실행 시 서버가 정상 기동됨
 
 ---
 
@@ -131,11 +131,11 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `backend/src/middlewares/authMiddleware.js` 작성
-  - [ ] `Authorization: Bearer <token>` 헤더 파싱
-  - [ ] 토큰 없거나 유효하지 않으면 `401` 반환
-  - [ ] 유효한 토큰이면 `req.user = { userId, email }` 주입 후 `next()` 호출
-- [ ] 인증 없이 보호된 라우트 접근 시 `401` 반환 검증
+- [x] `backend/src/middlewares/authMiddleware.js` 작성
+  - [x] `Authorization: Bearer <token>` 헤더 파싱
+  - [x] 토큰 없거나 유효하지 않으면 `401` 반환
+  - [x] 유효한 토큰이면 `req.user = { userId, email }` 주입 후 `next()` 호출
+- [x] 인증 없이 보호된 라우트 접근 시 `401` 반환 검증
 
 ---
 
@@ -146,24 +146,24 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `backend/src/repositories/userRepository.js` 작성
-  - [ ] `findByEmail(email)` — 이메일로 사용자 조회
-  - [ ] `create({ email, password, name })` — 사용자 생성 (theme, language 기본값 적용)
-  - [ ] `findById(id)` — ID로 사용자 조회
-  - [ ] `update(id, fields)` — 사용자 정보 수정 (name, password, theme, language)
-- [ ] `backend/src/services/authService.js` 작성
-  - [ ] `register({ email, password, name })`: 이메일 중복 검사 → bcrypt 해싱 → DB 저장
-  - [ ] `login({ email, password })`: 사용자 조회 → 비밀번호 비교 → JWT 생성 반환
-- [ ] `backend/src/controllers/authController.js` 작성
-  - [ ] `POST /api/auth/register` → 201 또는 409(중복 이메일)
-  - [ ] `POST /api/auth/login` → 200 + JWT 또는 401
-  - [ ] `POST /api/auth/logout` → 200 (클라이언트 측 토큰 삭제 방식)
-- [ ] `backend/src/routes/authRoutes.js` 작성
-- [ ] 통합 테스트
-  - [ ] 정상 회원가입 → 201 반환
-  - [ ] 중복 이메일 회원가입 → 409 반환
-  - [ ] 정상 로그인 → 200 + JWT 반환
-  - [ ] 잘못된 비밀번호 로그인 → 401 반환
+- [x] `backend/src/repositories/userRepository.js` 작성
+  - [x] `findByEmail(email)` — 이메일로 사용자 조회
+  - [x] `create({ email, password, name })` — 사용자 생성 (theme, language 기본값 적용)
+  - [x] `findById(id)` — ID로 사용자 조회
+  - [x] `update(id, fields)` — 사용자 정보 수정 (name, password, theme, language)
+- [x] `backend/src/services/authService.js` 작성
+  - [x] `register({ email, password, name })`: 이메일 중복 검사 → bcrypt 해싱 → DB 저장
+  - [x] `login({ email, password })`: 사용자 조회 → 비밀번호 비교 → JWT 생성 반환
+- [x] `backend/src/controllers/authController.js` 작성
+  - [x] `POST /api/auth/register` → 201 또는 409(중복 이메일)
+  - [x] `POST /api/auth/login` → 200 + JWT 또는 401
+  - [x] `POST /api/auth/logout` → 200 (클라이언트 측 토큰 삭제 방식)
+- [x] `backend/src/routes/authRoutes.js` 작성
+- [x] 통합 테스트
+  - [x] 정상 회원가입 → 201 반환
+  - [x] 중복 이메일 회원가입 → 409 반환
+  - [x] 정상 로그인 → 200 + JWT 반환
+  - [x] 잘못된 비밀번호 로그인 → 401 반환
 
 ---
 
@@ -174,15 +174,15 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `backend/src/services/userService.js` 작성
-  - [ ] `updateProfile(userId, { name, password })`: 비밀번호 변경 시 bcrypt 해싱
-  - [ ] `updatePreferences(userId, { theme, language })`: theme 유효값(LIGHT/DARK) 검증
-  - [ ] `getProfile(userId)`: 사용자 정보 조회 (비밀번호 필드 제외)
-- [ ] `backend/src/controllers/userController.js` 작성
-  - [ ] `GET /api/users/me` → 200 + 사용자 정보 (theme, language 포함)
-  - [ ] `PATCH /api/users/me` → 200
-  - [ ] `PATCH /api/users/me/preferences` → 200, 유효하지 않은 theme 값이면 400
-- [ ] `backend/src/routes/userRoutes.js` 작성 (모두 authMiddleware 적용)
+- [x] `backend/src/services/userService.js` 작성
+  - [x] `updateProfile(userId, { name, password })`: 비밀번호 변경 시 bcrypt 해싱
+  - [x] `updatePreferences(userId, { theme, language })`: theme 유효값(LIGHT/DARK) 검증
+  - [x] `getProfile(userId)`: 사용자 정보 조회 (비밀번호 필드 제외)
+- [x] `backend/src/controllers/userController.js` 작성
+  - [x] `GET /api/users/me` → 200 + 사용자 정보 (theme, language 포함)
+  - [x] `PATCH /api/users/me` → 200
+  - [x] `PATCH /api/users/me/preferences` → 200, 유효하지 않은 theme 값이면 400
+- [x] `backend/src/routes/userRoutes.js` 작성 (모두 authMiddleware 적용)
 
 ---
 
@@ -193,25 +193,25 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `backend/src/repositories/categoryRepository.js` 작성
-  - [ ] `findAllByUser(userId)`: 시스템 기본 카테고리(user_id IS NULL) + 사용자 카테고리 조회
-  - [ ] `findById(id)`: 단건 조회
-  - [ ] `create({ userId, name })`: 카테고리 생성
-  - [ ] `update(id, { name })`: 이름 수정
-  - [ ] `deleteById(id)`: 삭제
-- [ ] `backend/src/services/categoryService.js` 작성
-  - [ ] `getCategories(userId)`: 카테고리 목록 반환
-  - [ ] `createCategory(userId, name)`: 생성
-  - [ ] `updateCategory(userId, categoryId, name)`: 소유권 검증 + 기본 카테고리 수정 방지(403)
-  - [ ] `deleteCategory(userId, categoryId)`: 소유권 검증 + 기본 카테고리 삭제 방지(403)
-- [ ] `backend/src/controllers/categoryController.js` 작성
-  - [ ] `GET /api/categories` → 200
-  - [ ] `POST /api/categories` → 201
-  - [ ] `PATCH /api/categories/:id` → 200 또는 403
-  - [ ] `DELETE /api/categories/:id` → 204 또는 403
-- [ ] `backend/src/routes/categoryRoutes.js` 작성
-- [ ] 통합 테스트
-  - [ ] 기본 카테고리 삭제 시도 → 403 반환
+- [x] `backend/src/repositories/categoryRepository.js` 작성
+  - [x] `findAllByUser(userId)`: 시스템 기본 카테고리(user_id IS NULL) + 사용자 카테고리 조회
+  - [x] `findById(id)`: 단건 조회
+  - [x] `create({ userId, name })`: 카테고리 생성
+  - [x] `update(id, { name })`: 이름 수정
+  - [x] `deleteById(id)`: 삭제
+- [x] `backend/src/services/categoryService.js` 작성
+  - [x] `getCategories(userId)`: 카테고리 목록 반환
+  - [x] `createCategory(userId, name)`: 생성
+  - [x] `updateCategory(categoryId, userId, name)`: 소유권 검증 + 기본 카테고리 수정 방지(403)
+  - [x] `deleteCategory(categoryId, userId)`: 소유권 검증 + 기본 카테고리 삭제 방지(403)
+- [x] `backend/src/controllers/categoryController.js` 작성
+  - [x] `GET /api/categories` → 200
+  - [x] `POST /api/categories` → 201
+  - [x] `PATCH /api/categories/:id` → 200 또는 403
+  - [x] `DELETE /api/categories/:id` → 204 또는 403
+- [x] `backend/src/routes/categoryRoutes.js` 작성
+- [x] 통합 테스트
+  - [x] 기본 카테고리 삭제 시도 → 403 반환
 
 ---
 
@@ -222,27 +222,27 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `backend/src/repositories/todoRepository.js` 작성
-  - [ ] `findAllByUser(userId, filters)`: 카테고리/상태/기한초과 필터 쿼리 파라미터 지원
-  - [ ] `findById(id)`: 단건 조회
-  - [ ] `create({ userId, categoryId, title, description, startDate, endDate })`: 상태 기본값 `TODO`, category_id 미제공 시 기본 카테고리 ID 사용
-  - [ ] `update(id, fields)`: 부분 수정
-  - [ ] `deleteById(id)`: 삭제
-- [ ] `backend/src/services/todoService.js` 작성
-  - [ ] `getTodos(userId, filters)`: 목록 조회
-  - [ ] `createTodo(userId, data)`: 날짜 유효성 검사 (end_date >= start_date)
-  - [ ] `updateTodo(userId, todoId, data)`: 소유권 검증 + 상태 전이 규칙 검증 (DONE → 다른 상태 불가) + 날짜 유효성 검사
-  - [ ] `deleteTodo(userId, todoId)`: 소유권 검증 (타인 리소스 → 403)
-- [ ] `backend/src/controllers/todoController.js` 작성
-  - [ ] `GET /api/todos` → 200 (쿼리 파라미터: `category`, `status`, `overdue`)
-  - [ ] `POST /api/todos` → 201 또는 400(날짜 오류)
-  - [ ] `PATCH /api/todos/:id` → 200 또는 400/403
-  - [ ] `DELETE /api/todos/:id` → 204 또는 403
-- [ ] `backend/src/routes/todoRoutes.js` 작성
-- [ ] 통합 테스트
-  - [ ] 인증 없이 `GET /api/todos` → 401 반환
-  - [ ] 타인 할일 삭제 시도 → 403 반환
-  - [ ] DONE 상태 할일을 다른 상태로 변경 시도 → 400 반환
+- [x] `backend/src/repositories/todoRepository.js` 작성
+  - [x] `findAllByUser(userId, filters)`: 카테고리/상태/기한초과 필터 쿼리 파라미터 지원
+  - [x] `findById(id)`: 단건 조회
+  - [x] `create({ userId, categoryId, title, description, startDate, endDate })`: 상태 기본값 `TODO`, category_id 미제공 시 기본 카테고리 ID 사용
+  - [x] `update(id, fields)`: 부분 수정
+  - [x] `deleteById(id)`: 삭제
+- [x] `backend/src/services/todoService.js` 작성
+  - [x] `getTodos(userId, filters)`: 목록 조회
+  - [x] `createTodo(userId, data)`: 날짜 유효성 검사 (end_date >= start_date)
+  - [x] `updateTodo(todoId, userId, data)`: 소유권 검증 + 상태 전이 규칙 검증 (DONE → 다른 상태 불가) + 날짜 유효성 검사
+  - [x] `deleteTodo(todoId, userId)`: 소유권 검증 (타인 리소스 → 403)
+- [x] `backend/src/controllers/todoController.js` 작성
+  - [x] `GET /api/todos` → 200 (쿼리 파라미터: `category_id`, `status`, `overdue`)
+  - [x] `POST /api/todos` → 201 또는 400(날짜 오류)
+  - [x] `PATCH /api/todos/:id` → 200 또는 400/403
+  - [x] `DELETE /api/todos/:id` → 204 또는 403
+- [x] `backend/src/routes/todoRoutes.js` 작성
+- [x] 통합 테스트
+  - [x] 인증 없이 `GET /api/todos` → 401 반환
+  - [x] 타인 할일 삭제 시도 → 403 반환
+  - [x] DONE 상태 할일을 다른 상태로 변경 시도 → 400 반환
 
 ---
 
@@ -253,19 +253,19 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] 테스트 프레임워크 설치 (`jest` 또는 `vitest`)
-- [ ] `todoService` 테스트
-  - [ ] 상태 전이: DONE → TODO 전이 시도 → 오류 발생 확인
-  - [ ] 상태 전이: IN_PROGRESS → TODO 되돌리기 → 성공 확인
-  - [ ] 날짜 검증: end_date < start_date → 오류 발생 확인
-  - [ ] 소유권 검증: 타인 ID로 수정 시도 → 403 오류 확인
-- [ ] `categoryService` 테스트
-  - [ ] 기본 카테고리(user_id=NULL) 수정 시도 → 오류 발생 확인
-  - [ ] 기본 카테고리 삭제 시도 → 오류 발생 확인
-  - [ ] 타인 카테고리 삭제 시도 → 403 오류 확인
-- [ ] `authService` 테스트
-  - [ ] 비밀번호 bcrypt 해싱 저장 확인 (평문 저장 아님)
-  - [ ] 중복 이메일 등록 시도 → 오류 발생 확인
+- [x] 테스트 프레임워크 설치 (`jest`)
+- [x] `todoService` 테스트
+  - [x] 상태 전이: DONE → TODO 전이 시도 → 오류 발생 확인
+  - [x] 상태 전이: IN_PROGRESS → TODO 되돌리기 → 성공 확인
+  - [x] 날짜 검증: end_date < start_date → 오류 발생 확인
+  - [x] 소유권 검증: 타인 ID로 수정 시도 → 403 오류 확인
+- [x] `categoryService` 테스트
+  - [x] 기본 카테고리(user_id=NULL) 수정 시도 → 오류 발생 확인
+  - [x] 기본 카테고리 삭제 시도 → 오류 발생 확인
+  - [x] 타인 카테고리 삭제 시도 → 403 오류 확인
+- [x] `authService` 테스트
+  - [x] 비밀번호 bcrypt 해싱 저장 확인 (평문 저장 아님)
+  - [x] 중복 이메일 등록 시도 → 오류 발생 확인
 
 ---
 
