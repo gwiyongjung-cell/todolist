@@ -40,36 +40,36 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `todolist` 데이터베이스 생성 확인
-- [ ] `theme` ENUM 타입 (`LIGHT`, `DARK`) 생성
-- [ ] `todo_status` ENUM 타입 (`TODO`, `IN_PROGRESS`, `DONE`) 생성
-- [ ] `users` 테이블 생성
-  - [ ] `id` (UUID PK, DEFAULT gen_random_uuid())
-  - [ ] `email` (VARCHAR(255) UNIQUE NOT NULL)
-  - [ ] `password` (VARCHAR(255) NOT NULL)
-  - [ ] `name` (VARCHAR(100) NOT NULL)
-  - [ ] `theme` (ENUM, DEFAULT 'LIGHT', NOT NULL)
-  - [ ] `language` (VARCHAR(10), DEFAULT 'ko', NOT NULL)
-  - [ ] `created_at` (TIMESTAMPTZ NOT NULL)
-  - [ ] `updated_at` (TIMESTAMPTZ NOT NULL)
-- [ ] `categories` 테이블 생성
-  - [ ] `id` (UUID PK)
-  - [ ] `user_id` (UUID FK → users.id, NULL 허용)
-  - [ ] `name` (VARCHAR(100) NOT NULL)
-  - [ ] `created_at` (TIMESTAMPTZ NOT NULL)
-- [ ] `todos` 테이블 생성
-  - [ ] `id` (UUID PK)
-  - [ ] `user_id` (UUID FK → users.id, NOT NULL)
-  - [ ] `category_id` (UUID FK → categories.id, NOT NULL)
-  - [ ] `title` (VARCHAR(255) NOT NULL)
-  - [ ] `description` (TEXT NULL 허용)
-  - [ ] `start_date` (DATE NULL 허용)
-  - [ ] `end_date` (DATE NULL 허용)
-  - [ ] `status` (ENUM DEFAULT 'TODO', NOT NULL)
-  - [ ] `created_at` (TIMESTAMPTZ NOT NULL)
-  - [ ] `updated_at` (TIMESTAMPTZ NOT NULL)
-  - [ ] CHECK 제약 `end_date >= start_date` (양쪽 NULL 허용 시 제외)
-- [ ] `backend/src/db/schema.sql` 파일로 저장
+- [x] `todolist` 데이터베이스 생성 확인
+- [x] `theme` ENUM 타입 (`LIGHT`, `DARK`) 생성
+- [x] `todo_status` ENUM 타입 (`TODO`, `IN_PROGRESS`, `DONE`) 생성
+- [x] `users` 테이블 생성
+  - [x] `id` (UUID PK, DEFAULT gen_random_uuid())
+  - [x] `email` (VARCHAR(255) UNIQUE NOT NULL)
+  - [x] `password` (VARCHAR(255) NOT NULL)
+  - [x] `name` (VARCHAR(100) NOT NULL)
+  - [x] `theme` (ENUM, DEFAULT 'LIGHT', NOT NULL)
+  - [x] `language` (VARCHAR(10), DEFAULT 'ko', NOT NULL)
+  - [x] `created_at` (TIMESTAMPTZ NOT NULL)
+  - [x] `updated_at` (TIMESTAMPTZ NOT NULL)
+- [x] `categories` 테이블 생성
+  - [x] `id` (UUID PK)
+  - [x] `user_id` (UUID FK → users.id, NULL 허용)
+  - [x] `name` (VARCHAR(100) NOT NULL)
+  - [x] `created_at` (TIMESTAMPTZ NOT NULL)
+- [x] `todos` 테이블 생성
+  - [x] `id` (UUID PK)
+  - [x] `user_id` (UUID FK → users.id, NOT NULL)
+  - [x] `category_id` (UUID FK → categories.id, NOT NULL)
+  - [x] `title` (VARCHAR(255) NOT NULL)
+  - [x] `description` (TEXT NULL 허용)
+  - [x] `start_date` (DATE NULL 허용)
+  - [x] `end_date` (DATE NULL 허용)
+  - [x] `status` (ENUM DEFAULT 'TODO', NOT NULL)
+  - [x] `created_at` (TIMESTAMPTZ NOT NULL)
+  - [x] `updated_at` (TIMESTAMPTZ NOT NULL)
+  - [x] CHECK 제약 `end_date >= start_date` (양쪽 NULL 허용 시 제외)
+- [x] `backend/src/db/schema.sql` 파일로 저장
 
 ---
 
@@ -80,9 +80,9 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `categories` 테이블에 `user_id = NULL`, `name = '기본'` 레코드 삽입 SQL 작성
-- [ ] 중복 삽입 방지 (`ON CONFLICT DO NOTHING` 또는 INSERT IF NOT EXISTS)
-- [ ] `backend/src/db/schema.sql` 또는 별도 `seed.sql`에 포함
+- [x] `categories` 테이블에 `user_id = NULL`, `name = '기본'` 레코드 삽입 SQL 작성
+- [x] 중복 삽입 방지 (`ON CONFLICT DO NOTHING` 또는 INSERT IF NOT EXISTS)
+- [x] `backend/src/db/schema.sql` 또는 별도 `seed.sql`에 포함
 
 ---
 
@@ -93,11 +93,11 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `backend/src/db/pool.js` 파일 생성
-- [ ] `pg.Pool` 인스턴스 생성: `max: 20`, `idleTimeoutMillis: 30000`, `connectionTimeoutMillis: 2000`
-- [ ] DB 연결 정보 (`host`, `port`, `database`, `user`, `password`)를 환경변수에서 로딩
-- [ ] `pool` 싱글턴 export
-- [ ] `backend/.env.example` 파일에 필수 환경변수 목록 작성 (`DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`)
+- [x] `backend/src/db/pool.js` 파일 생성
+- [x] `pg.Pool` 인스턴스 생성: `max: 20`, `idleTimeoutMillis: 30000`, `connectionTimeoutMillis: 2000`
+- [x] DB 연결 정보 (`host`, `port`, `database`, `user`, `password`)를 환경변수에서 로딩
+- [x] `pool` 싱글턴 export
+- [x] `backend/.env.example` 파일에 필수 환경변수 목록 작성 (`DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`)
 
 ---
 
@@ -456,26 +456,26 @@
 
 ## Task 요약 표
 
-| Task ID | 구분 | 설명 | 의존성 | 우선순위 |
-|---------|------|------|--------|--------|
-| DB-01 | DB | PostgreSQL 스키마 생성 | 없음 | 1 |
-| DB-02 | DB | 기본 카테고리 초기 데이터 삽입 | DB-01 | 1 |
-| DB-03 | DB | pg 연결 풀 설정 | DB-01 | 1 |
-| BE-01 | BE | 백엔드 프로젝트 기반 설정 | DB-03 | 2 |
-| BE-02 | BE | 인증 미들웨어 구현 | BE-01 | 2 |
-| BE-03 | BE | 인증 API (회원가입/로그인/로그아웃) | BE-01, BE-02 | 2 |
-| BE-04 | BE | 사용자 API (내 정보 수정/환경설정) | BE-02, BE-03 | 2 |
-| BE-05 | BE | 카테고리 API (CRUD) | BE-02 | 2 |
-| BE-06 | BE | 할일 API (CRUD + 필터) | BE-02, BE-05 | 2 |
-| BE-07 | BE | 백엔드 단위 테스트 | BE-03~06 | 3 |
-| FE-01 | FE | 프론트엔드 기반 설정 | 없음 | 2 |
-| FE-02 | FE | 인증 상태 관리 및 라우팅 가드 | FE-01 | 2 |
-| FE-03 | FE | 인증 화면 (로그인/회원가입) | FE-02, BE-03 | 2 |
-| FE-04 | FE | 카테고리 관리 화면 | FE-02, BE-05 | 3 |
-| FE-05 | FE | 할일 목록 화면 (필터 포함) | FE-03, FE-04, BE-06 | 3 |
-| FE-06 | FE | 할일 등록/수정 화면 | FE-04, FE-05 | 3 |
-| FE-07 | FE | 내 정보 수정 화면 | FE-03, BE-04 | 3 |
-| FE-08 | FE | 환경설정 화면 (v2: 테마/다국어) | FE-07, BE-04 | 4 |
+| Task ID | 구분 | 설명                                | 의존성              | 우선순위 |
+| ------- | ---- | ----------------------------------- | ------------------- | -------- |
+| DB-01   | DB   | PostgreSQL 스키마 생성              | 없음                | 1        |
+| DB-02   | DB   | 기본 카테고리 초기 데이터 삽입      | DB-01               | 1        |
+| DB-03   | DB   | pg 연결 풀 설정                     | DB-01               | 1        |
+| BE-01   | BE   | 백엔드 프로젝트 기반 설정           | DB-03               | 2        |
+| BE-02   | BE   | 인증 미들웨어 구현                  | BE-01               | 2        |
+| BE-03   | BE   | 인증 API (회원가입/로그인/로그아웃) | BE-01, BE-02        | 2        |
+| BE-04   | BE   | 사용자 API (내 정보 수정/환경설정)  | BE-02, BE-03        | 2        |
+| BE-05   | BE   | 카테고리 API (CRUD)                 | BE-02               | 2        |
+| BE-06   | BE   | 할일 API (CRUD + 필터)              | BE-02, BE-05        | 2        |
+| BE-07   | BE   | 백엔드 단위 테스트                  | BE-03~06            | 3        |
+| FE-01   | FE   | 프론트엔드 기반 설정                | 없음                | 2        |
+| FE-02   | FE   | 인증 상태 관리 및 라우팅 가드       | FE-01               | 2        |
+| FE-03   | FE   | 인증 화면 (로그인/회원가입)         | FE-02, BE-03        | 2        |
+| FE-04   | FE   | 카테고리 관리 화면                  | FE-02, BE-05        | 3        |
+| FE-05   | FE   | 할일 목록 화면 (필터 포함)          | FE-03, FE-04, BE-06 | 3        |
+| FE-06   | FE   | 할일 등록/수정 화면                 | FE-04, FE-05        | 3        |
+| FE-07   | FE   | 내 정보 수정 화면                   | FE-03, BE-04        | 3        |
+| FE-08   | FE   | 환경설정 화면 (v2: 테마/다국어)     | FE-07, BE-04        | 4        |
 
 ---
 
@@ -483,18 +483,18 @@
 
 ### Day 1 — 백엔드 및 DB
 
-| 시간 | 작업 |
-|------|------|
-| 오전 | DB-01, DB-02, DB-03, BE-01 |
-| 오후 전반 | BE-02, BE-03 |
-| 오후 후반 | BE-04, BE-05, BE-06 |
-| 저녁 | BE-07 (핵심 단위 테스트) |
+| 시간      | 작업                       |
+| --------- | -------------------------- |
+| 오전      | DB-01, DB-02, DB-03, BE-01 |
+| 오후 전반 | BE-02, BE-03               |
+| 오후 후반 | BE-04, BE-05, BE-06        |
+| 저녁      | BE-07 (핵심 단위 테스트)   |
 
 ### Day 2 — 프론트엔드 및 연동
 
-| 시간 | 작업 |
-|------|------|
-| 오전 | FE-01, FE-02, FE-03 |
-| 오후 전반 | FE-04, FE-05 |
-| 오후 후반 | FE-06, FE-07 |
-| 저녁 | FE-08 (v2), 전체 연동 확인 |
+| 시간      | 작업                       |
+| --------- | -------------------------- |
+| 오전      | FE-01, FE-02, FE-03        |
+| 오후 전반 | FE-04, FE-05               |
+| 오후 후반 | FE-06, FE-07               |
+| 저녁      | FE-08 (v2), 전체 연동 확인 |
