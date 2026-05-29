@@ -14,21 +14,6 @@ const MOCK_USER = {
   updated_at: '2026-05-28T00:00:00.000Z',
 };
 
-function renderWithRouter(
-  ui: React.ReactElement,
-  { initialEntries = ['/'] }: { initialEntries?: string[] } = {},
-) {
-  return render(
-    <MemoryRouter initialEntries={initialEntries}>
-      <Routes>
-        <Route path="/login" element={<div>로그인 페이지</div>} />
-        <Route path="/todos" element={<div>할일 목록 페이지</div>} />
-        <Route path="/protected" element={ui} />
-        <Route path="/public" element={ui} />
-      </Routes>
-    </MemoryRouter>,
-  );
-}
 
 describe('PrivateRoute', () => {
   beforeEach(() => {
