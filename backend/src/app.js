@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger.json');
 const env = require('./config/env');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 
@@ -11,6 +13,8 @@ app.use(express.json());
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // 인증 미들웨어 (각 보호 라우터에 개별 적용)
 // const authMiddleware = require('./middlewares/authMiddleware');

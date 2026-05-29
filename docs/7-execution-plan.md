@@ -278,22 +278,22 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `frontend/` Vite + React 19 + TypeScript 프로젝트 생성
-- [ ] 의존성 설치: `zustand`, `@tanstack/react-query`, `react-router-dom`
-- [ ] `frontend/.env` 파일 생성 (`VITE_API_BASE_URL=http://localhost:3000`)
-- [ ] `frontend/src/api/client.ts` 작성
-  - [ ] `baseURL` 환경변수 기반 설정
-  - [ ] `Authorization: Bearer <token>` 헤더 자동 주입 함수
-  - [ ] 공통 에러 처리 (401 시 로그인 리다이렉트)
-- [ ] `frontend/src/constants/statusConstants.ts` 작성 (`TODO`, `IN_PROGRESS`, `DONE`, `LIGHT`, `DARK`)
-- [ ] `frontend/src/types/` 공통 타입 정의
-  - [ ] `auth.ts` (LoginRequest, RegisterRequest, AuthResponse)
-  - [ ] `todo.ts` (Todo, CreateTodoRequest, UpdateTodoRequest, TodoFilter)
-  - [ ] `category.ts` (Category, CreateCategoryRequest)
-  - [ ] `user.ts` (User, UpdateProfileRequest, UpdatePreferencesRequest)
-- [ ] `frontend/src/utils/dateUtils.ts` 작성 (날짜 포맷, 기한 초과 계산)
-- [ ] `frontend/src/App.tsx` 라우터 스켈레톤 작성
-- [ ] `npm run dev` 실행 시 빈 앱이 정상 기동됨
+- [x] `frontend/` Vite + React 19 + TypeScript 프로젝트 생성
+- [x] 의존성 설치: `zustand`, `@tanstack/react-query`, `react-router-dom`
+- [x] `frontend/.env` 파일 생성 (`VITE_API_BASE_URL=http://localhost:3000`)
+- [x] `frontend/src/api/client.ts` 작성
+  - [x] `baseURL` 환경변수 기반 설정
+  - [x] `Authorization: Bearer <token>` 헤더 자동 주입 함수
+  - [x] 공통 에러 처리 (401 시 로그인 리다이렉트)
+- [x] `frontend/src/constants/statusConstants.ts` 작성 (`TODO`, `IN_PROGRESS`, `DONE`, `LIGHT`, `DARK`)
+- [x] `frontend/src/types/` 공통 타입 정의
+  - [x] `auth.ts` (LoginRequest, RegisterRequest, AuthResponse)
+  - [x] `todo.ts` (Todo, CreateTodoRequest, UpdateTodoRequest, TodoFilter)
+  - [x] `category.ts` (Category, CreateCategoryRequest)
+  - [x] `user.ts` (User, UpdateProfileRequest, UpdatePreferencesRequest)
+- [x] `frontend/src/utils/dateUtils.ts` 작성 (날짜 포맷, 기한 초과 계산)
+- [x] `frontend/src/App.tsx` 라우터 스켈레톤 작성
+- [x] `npm run dev` 실행 시 빈 앱이 정상 기동됨
 
 ---
 
@@ -304,19 +304,19 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `frontend/src/stores/authStore.ts` 작성
-  - [ ] `token`, `user` 상태 관리
-  - [ ] `setAuth(token, user)`, `clearAuth()` 액션
-  - [ ] `localStorage` 연동 (새로고침 시 인증 유지)
-  - [ ] `isAuthenticated` 파생 상태
-- [ ] `frontend/src/api/authApi.ts` 작성
-  - [ ] `register(data)`, `login(data)`, `logout()` 함수
-- [ ] 보호 라우트 컴포넌트 작성 (`PrivateRoute`)
-  - [ ] 비인증 상태에서 접근 시 `/login`으로 리다이렉트
-- [ ] `frontend/src/App.tsx` 라우팅 구성
-  - [ ] 공개 라우트: `/login`, `/register`
-  - [ ] 보호 라우트: `/todos`, `/todos/new`, `/todos/:id/edit`, `/categories`, `/profile`, `/settings`
-- [ ] 비인증 상태에서 `/todos` 접근 시 `/login`으로 리다이렉트 동작 확인
+- [x] `frontend/src/stores/authStore.ts` 작성
+  - [x] `token`, `user` 상태 관리
+  - [x] `setAuth(token, user)`, `clearAuth()` 액션
+  - [x] `localStorage` 연동 (새로고침 시 인증 유지)
+  - [x] `isAuthenticated` 파생 상태
+- [x] `frontend/src/api/authApi.ts` 작성
+  - [x] `register(data)`, `login(data)`, `logout()` 함수
+- [x] 보호 라우트 컴포넌트 작성 (`PrivateRoute`)
+  - [x] 비인증 상태에서 접근 시 `/login`으로 리다이렉트
+- [x] `frontend/src/App.tsx` 라우팅 구성
+  - [x] 공개 라우트: `/login`, `/register`
+  - [x] 보호 라우트: `/todos`, `/todos/new`, `/todos/:id/edit`, `/categories`, `/profile`, `/settings`
+- [x] 비인증 상태에서 `/todos` 접근 시 `/login`으로 리다이렉트 동작 확인
 
 ---
 
@@ -327,19 +327,19 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `frontend/src/components/` 공통 컴포넌트 작성
-  - [ ] `Button.tsx` (로딩 상태 포함)
-  - [ ] `Input.tsx` (에러 메시지 표시 포함)
-- [ ] `frontend/src/pages/LoginPage.tsx` 구현
-  - [ ] 이메일/비밀번호 입력 폼
-  - [ ] 로그인 성공 시 `/todos`로 이동 + authStore 갱신
-  - [ ] 로그인 실패 시 에러 메시지 표시
-  - [ ] 회원가입 페이지 링크
-- [ ] `frontend/src/pages/RegisterPage.tsx` 구현
-  - [ ] 이름/이메일/비밀번호 입력 폼
-  - [ ] 회원가입 성공 시 `/login`으로 이동
-  - [ ] 중복 이메일 오류 메시지 표시
-- [ ] 로그인 → 할일 목록 화면 이동 E2E 동작 확인
+- [x] `frontend/src/components/` 공통 컴포넌트 작성
+  - [x] `Button.tsx` (로딩 상태 포함)
+  - [x] `Input.tsx` (에러 메시지 표시 포함)
+- [x] `frontend/src/pages/LoginPage.tsx` 구현
+  - [x] 이메일/비밀번호 입력 폼
+  - [x] 로그인 성공 시 `/todos`로 이동 + authStore 갱신
+  - [x] 로그인 실패 시 에러 메시지 표시
+  - [x] 회원가입 페이지 링크
+- [x] `frontend/src/pages/RegisterPage.tsx` 구현
+  - [x] 이름/이메일/비밀번호 입력 폼
+  - [x] 회원가입 성공 시 `/login`으로 이동
+  - [x] 중복 이메일 오류 메시지 표시
+- [x] 로그인 → 할일 목록 화면 이동 E2E 동작 확인
 
 ---
 
@@ -350,17 +350,17 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `frontend/src/api/categoryApi.ts` 작성
-  - [ ] `getCategories()`, `createCategory(name)`, `updateCategory(id, name)`, `deleteCategory(id)` 함수
-- [ ] `frontend/src/features/category/` 구현
-  - [ ] `useCategoryQuery.ts`: TanStack Query로 카테고리 목록 조회
-  - [ ] `useCategoryMutations.ts`: 등록/수정/삭제 뮤테이션
-- [ ] `frontend/src/pages/CategoryPage.tsx` 구현 (S-06)
-  - [ ] 카테고리 목록 표시 (기본 카테고리 수정/삭제 버튼 비활성화)
-  - [ ] 카테고리 이름 입력 + 추가 버튼
-  - [ ] 카테고리별 수정/삭제 버튼
-  - [ ] 기본 카테고리 수정/삭제 시도 차단 및 오류 메시지 표시
-- [ ] 카테고리 CRUD 전체 동작 확인
+- [x] `frontend/src/api/categoryApi.ts` 작성
+  - [x] `getCategories()`, `createCategory(name)`, `updateCategory(id, name)`, `deleteCategory(id)` 함수
+- [x] `frontend/src/features/category/` 구현
+  - [x] `useCategoryQuery.ts`: TanStack Query로 카테고리 목록 조회
+  - [x] `useCategoryMutations.ts`: 등록/수정/삭제 뮤테이션
+- [x] `frontend/src/pages/CategoryPage.tsx` 구현 (S-06)
+  - [x] 카테고리 목록 표시 (기본 카테고리 수정/삭제 버튼 비활성화)
+  - [x] 카테고리 이름 입력 + 추가 버튼
+  - [x] 카테고리별 수정/삭제 버튼
+  - [x] 기본 카테고리 수정/삭제 시도 차단 및 오류 메시지 표시
+- [x] 카테고리 CRUD 전체 동작 확인
 
 ---
 
@@ -371,21 +371,21 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `frontend/src/api/todoApi.ts` 작성
-  - [ ] `getTodos(filters)`, `createTodo(data)`, `updateTodo(id, data)`, `deleteTodo(id)` 함수
-- [ ] `frontend/src/features/todo/` 구현
-  - [ ] `useTodosQuery.ts`: TanStack Query로 할일 목록 조회 (필터 파라미터 포함)
-  - [ ] `useTodoMutations.ts`: 등록/수정/삭제 뮤테이션
-- [ ] `frontend/src/pages/TodoListPage.tsx` 구현 (S-03)
-  - [ ] 할일 목록 렌더링 (제목, 상태, 카테고리, 날짜 표시)
-  - [ ] 카테고리 필터 선택 UI
-  - [ ] 상태 필터 선택 UI (전체/대기/진행중/완료)
-  - [ ] 기한 초과 미완료 필터 선택 UI
-  - [ ] 할일 등록 버튼 → `/todos/new`로 이동
-  - [ ] 할일 항목 클릭 → `/todos/:id/edit`로 이동
-  - [ ] 할일 삭제 버튼 및 확인 처리
-  - [ ] 로그아웃 버튼 → authStore 초기화 + `/login`으로 이동
-- [ ] 필터 조합 동작 확인 (카테고리 + 상태 + 기한 초과)
+- [x] `frontend/src/api/todoApi.ts` 작성
+  - [x] `getTodos(filters)`, `createTodo(data)`, `updateTodo(id, data)`, `deleteTodo(id)` 함수
+- [x] `frontend/src/features/todo/` 구현
+  - [x] `useTodosQuery.ts`: TanStack Query로 할일 목록 조회 (필터 파라미터 포함)
+  - [x] `useTodoMutations.ts`: 등록/수정/삭제 뮤테이션
+- [x] `frontend/src/pages/TodoListPage.tsx` 구현 (S-03)
+  - [x] 할일 목록 렌더링 (제목, 상태, 카테고리, 날짜 표시)
+  - [x] 카테고리 필터 선택 UI
+  - [x] 상태 필터 선택 UI (전체/대기/진행중/완료)
+  - [x] 기한 초과 미완료 필터 선택 UI
+  - [x] 할일 등록 버튼 → `/todos/new`로 이동
+  - [x] 할일 항목 클릭 → `/todos/:id/edit`로 이동
+  - [x] 할일 삭제 버튼 및 확인 처리
+  - [x] 로그아웃 버튼 → authStore 초기화 + `/login`으로 이동
+- [x] 필터 조합 동작 확인 (카테고리 + 상태 + 기한 초과)
 
 ---
 
@@ -396,19 +396,19 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `frontend/src/components/DatePicker.tsx` 구현 (캘린더 날짜 선택)
-- [ ] `frontend/src/pages/TodoFormPage.tsx` 구현 (S-04 등록 / S-05 수정 공용)
-  - [ ] 제목 입력 (필수)
-  - [ ] 카테고리 선택 드롭다운 (기본 카테고리 포함)
-  - [ ] 시작일자 캘린더 선택
-  - [ ] 종료일자 캘린더 선택
-  - [ ] 날짜 유효성 검사: end_date < start_date 시 저장 차단 + 오류 메시지
-  - [ ] 상세 내용 텍스트 입력 (선택)
-  - [ ] 수정 화면에서 상태 변경 UI
-    - [ ] 상태 전이 규칙 UI 반영: DONE 상태 시 다른 상태로 변경 UI 비활성화
-  - [ ] 저장 성공 시 `/todos`로 이동
-  - [ ] 카테고리 미지정 시 자동으로 기본 카테고리 적용 확인
-- [ ] 등록 → 목록 반영 / 수정 → 목록 갱신 동작 확인
+- [x] `frontend/src/components/DatePicker.tsx` 구현 (캘린더 날짜 선택)
+- [x] `frontend/src/pages/TodoFormPage.tsx` 구현 (S-04 등록 / S-05 수정 공용)
+  - [x] 제목 입력 (필수)
+  - [x] 카테고리 선택 드롭다운 (기본 카테고리 포함)
+  - [x] 시작일자 캘린더 선택
+  - [x] 종료일자 캘린더 선택
+  - [x] 날짜 유효성 검사: end_date < start_date 시 저장 차단 + 오류 메시지
+  - [x] 상세 내용 텍스트 입력 (선택)
+  - [x] 수정 화면에서 상태 변경 UI
+    - [x] 상태 전이 규칙 UI 반영: DONE 상태 시 다른 상태로 변경 UI 비활성화
+  - [x] 저장 성공 시 `/todos`로 이동
+  - [x] 카테고리 미지정 시 자동으로 기본 카테고리 적용 확인
+- [x] 등록 → 목록 반영 / 수정 → 목록 갱신 동작 확인
 
 ---
 
@@ -419,14 +419,14 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `frontend/src/api/userApi.ts` 작성
-  - [ ] `getMe()`, `updateProfile(data)`, `updatePreferences(data)` 함수
-- [ ] `frontend/src/pages/ProfilePage.tsx` 구현 (S-07)
-  - [ ] 현재 이름 표시 및 수정 입력
-  - [ ] 새 비밀번호 입력 (선택, 미입력 시 변경 없음)
-  - [ ] 저장 성공 메시지 표시
-- [ ] 이름 수정 저장 동작 확인
-- [ ] 비밀번호 변경 후 재로그인 동작 확인
+- [x] `frontend/src/api/userApi.ts` 작성
+  - [x] `getMe()`, `updateProfile(data)`, `updatePreferences(data)` 함수
+- [x] `frontend/src/pages/ProfilePage.tsx` 구현 (S-07)
+  - [x] 현재 이름 표시 및 수정 입력
+  - [x] 새 비밀번호 입력 (선택, 미입력 시 변경 없음)
+  - [x] 저장 성공 메시지 표시
+- [x] 이름 수정 저장 동작 확인
+- [x] 비밀번호 변경 후 재로그인 동작 확인
 
 ---
 
@@ -437,20 +437,20 @@
 
 #### 완료 조건 체크리스트
 
-- [ ] `react-i18next` 의존성 설치
-- [ ] `frontend/src/i18n.ts` 초기화 설정 작성
-- [ ] `frontend/src/locales/ko.json` 한국어 번역 파일 작성 (전체 앱 텍스트)
-- [ ] `frontend/src/locales/en.json` 영어 번역 파일 작성
-- [ ] `frontend/src/stores/uiStore.ts` 작성
-  - [ ] `theme` (LIGHT/DARK), `language` 상태 관리
-  - [ ] `setTheme(theme)`, `setLanguage(language)` 액션
-- [ ] `frontend/src/pages/SettingsPage.tsx` 구현 (S-08)
-  - [ ] 테마 모드 토글 (Dark/Light)
-  - [ ] 언어 선택 드롭다운 (한국어/English)
-  - [ ] 테마 변경 시 UI 즉시 전환 확인
-  - [ ] 언어 변경 시 앱 전체 텍스트 즉시 전환 확인
-- [ ] 로그인 후 저장된 테마/언어 자동 적용 확인
-- [ ] 비인증 화면(로그인/회원가입)에서도 언어 선택 적용 확인
+- [x] `react-i18next` 의존성 설치
+- [x] `frontend/src/i18n.ts` 초기화 설정 작성
+- [x] `frontend/src/locales/ko.json` 한국어 번역 파일 작성 (전체 앱 텍스트)
+- [x] `frontend/src/locales/en.json` 영어 번역 파일 작성
+- [x] `frontend/src/stores/uiStore.ts` 작성
+  - [x] `theme` (LIGHT/DARK), `language` 상태 관리
+  - [x] `setTheme(theme)`, `setLanguage(language)` 액션
+- [x] `frontend/src/pages/SettingsPage.tsx` 구현 (S-08)
+  - [x] 테마 모드 토글 (Dark/Light)
+  - [x] 언어 선택 드롭다운 (한국어/English)
+  - [x] 테마 변경 시 UI 즉시 전환 확인
+  - [x] 언어 변경 시 앱 전체 텍스트 즉시 전환 확인
+- [x] 로그인 후 저장된 테마/언어 자동 적용 확인
+- [x] 비인증 화면(로그인/회원가입)에서도 언어 선택 적용 확인
 
 ---
 

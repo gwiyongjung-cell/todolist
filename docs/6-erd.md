@@ -59,19 +59,21 @@ erDiagram
 
 ### Todo status 전이 규칙
 
-- 허용 전이 경로: `TODO` → `IN_PROGRESS` → `DONE`
+- 허용 전이 경로: `TODO` ↔ `IN_PROGRESS` → `DONE`
 - `DONE` 상태에서 다른 상태로의 역전이는 불가하다.
+- `IN_PROGRESS` → `TODO` 되돌리기는 허용된다.
 - 애플리케이션 레이어에서 전이 유효성을 검증한다.
 
-| 현재 상태   | 전이 가능 상태 |
-| ----------- | -------------- |
-| TODO        | IN_PROGRESS    |
-| IN_PROGRESS | DONE           |
-| DONE        | (불가)         |
+| 현재 상태   | 전이 가능 상태      |
+| ----------- | ------------------- |
+| TODO        | IN_PROGRESS         |
+| IN_PROGRESS | DONE, TODO          |
+| DONE        | (불가)              |
 
 ### end_date >= start_date 제약
 
 - `todos.start_date`와 `todos.end_date`가 모두 NOT NULL일 경우, `end_date`는 반드시 `start_date` 이상이어야 한다.
+- 어느 한쪽이 NULL이면 제약이 적용되지 않는다.
 - PostgreSQL CHECK 제약으로 구현한다.
   ```sql
   CONSTRAINT chk_date_range CHECK (end_date IS NULL OR start_date IS NULL OR end_date >= start_date)
@@ -113,7 +115,7 @@ erDiagram
 | title       | VARCHAR(255)                      | NOT NULL                                  | 할일 제목      |
 | description | TEXT                              | NULL 허용                                 | 상세 내용      |
 | start_date  | DATE                              | NULL 허용                                 | 시작일자       |
-| end_date    | DATE                              | NULL 허용, CHECK (end_date >= start_date) | 종료일자       |
+| end_date    | DATE                              | NULL 허용, CHECK (end_date IS NULL OR start_date IS NULL OR end_date >= start_date) | 종료일자       |
 | status      | ENUM('TODO','IN_PROGRESS','DONE') | NOT NULL, DEFAULT 'TODO'                  | 진행 상태      |
 | created_at  | TIMESTAMPTZ                       | NOT NULL                                  | 등록일시       |
 | updated_at  | TIMESTAMPTZ                       | NOT NULL                                  | 수정일시       |
