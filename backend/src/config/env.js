@@ -4,8 +4,9 @@ const required = ['DB_HOST', 'DB_PORT', 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'JW
 
 for (const key of required) {
   if (!process.env[key]) {
-    console.error(`[env] 필수 환경변수 누락: ${key}`);
-    process.exit(1);
+    const msg = `[env] 필수 환경변수 누락: ${key}`;
+    console.error(msg);
+    throw new Error(msg);
   }
 }
 
