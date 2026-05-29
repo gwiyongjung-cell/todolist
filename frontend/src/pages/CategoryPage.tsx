@@ -176,13 +176,13 @@ export default function CategoryPage() {
                           <button
                             onClick={() => handleUpdate(cat.id)}
                             disabled={updateMutation.isPending}
-                            className="text-sm text-primary font-medium hover:underline disabled:opacity-50"
+                            className="text-sm text-primary font-medium hover:underline disabled:opacity-50 px-2 py-2"
                           >
                             {t('category.saveEdit')}
                           </button>
                           <button
                             onClick={cancelEdit}
-                            className="text-sm text-gray-500 hover:underline"
+                            className="text-sm text-gray-500 hover:underline px-2 py-2"
                           >
                             {t('category.cancelEdit')}
                           </button>
@@ -203,7 +203,7 @@ export default function CategoryPage() {
                           onClick={() => isDefault ? setActionError(t('category.defaultModifyError')) : startEdit(cat.id, cat.name)}
                           disabled={isDefault}
                           aria-label={`${cat.name} 수정`}
-                          className="text-sm text-gray-500 hover:text-info disabled:opacity-30 disabled:cursor-not-allowed"
+                          className="text-sm text-gray-500 hover:text-info disabled:opacity-30 disabled:cursor-not-allowed p-2"
                         >
                           {t('common.edit')}
                         </button>
@@ -211,7 +211,7 @@ export default function CategoryPage() {
                           onClick={() => isDefault ? setActionError(t('category.defaultDeleteError')) : handleDelete(cat.id)}
                           disabled={isDefault || deleteMutation.isPending}
                           aria-label={`${cat.name} 삭제`}
-                          className="text-sm text-gray-500 hover:text-danger disabled:opacity-30 disabled:cursor-not-allowed"
+                          className="text-sm text-gray-500 hover:text-danger disabled:opacity-30 disabled:cursor-not-allowed p-2"
                         >
                           {t('common.delete')}
                         </button>

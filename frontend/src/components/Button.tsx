@@ -31,7 +31,7 @@ export function Button({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
-      className={`w-full flex items-center justify-center gap-2 px-5 py-2.5 rounded-md text-sm font-semibold transition-colors ${variantClass[variant]} ${className}`}
+      className={`w-full flex items-center justify-center gap-2 px-5 py-3 rounded-md text-sm font-semibold transition-colors ${variantClass[variant]} ${className}`}
     >
       {loading && (
         <span className="inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />

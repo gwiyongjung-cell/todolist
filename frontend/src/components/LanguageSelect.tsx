@@ -11,7 +11,7 @@ export default function LanguageSelect() {
       value={language}
       onChange={(e) => setLanguage(e.target.value)}
       aria-label="언어 선택"
-      className="text-xs text-gray-500 border border-gray-200 rounded px-2 py-1 outline-none focus:border-primary"
+      className="text-sm text-gray-500 border border-gray-200 rounded px-3 py-2 outline-none focus:border-primary"
     >
       <option value="ko">{t('settings.languageKo')}</option>
       <option value="en">{t('settings.languageEn')}</option>

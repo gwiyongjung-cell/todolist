@@ -161,7 +161,7 @@ export default function TodoFormPage() {
             </div>
 
             {/* 날짜 */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <DatePicker
                 label={t('todo.startDate')}
                 value={startDate}
