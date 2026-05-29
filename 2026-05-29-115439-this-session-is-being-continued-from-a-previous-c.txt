@@ -1,0 +1,791 @@
+ ▐▛███▜▌   Claude Code v2.1.154
+▝▜█████▛▘  Sonnet 4.6 · Claude Team
+  ▘▘ ▝▝    C:\_vibe\todolist
+
+   Opus 4.8 is now available! · /model to switch
+
+✻ Conversation compacted (ctrl+o for history)
+
+
+● 커밋 및 push 완료되었습니다.
+
+  - 커밋: f42dc7d — 86개 파일, 13,850줄 추가
+  - push: origin/main 반영 완료
+
+  커밋 내용 요약:
+  - FE-01~08 프론트엔드 전체 구현 (React 19 + TypeScript)
+  - 백엔드 Swagger UI 추가
+  - 문서 업데이트 (실행 계획, ERD, 스타일 가이드, 통합 가이드)
+  - 테스트 218개 전체 통과 (20개 파일)
+
+✻ Cooked for 41s
+
+❯ /compact                                                                      
+  ⎿  Compacted (ctrl+o to see full summary)
+  ⎿  Referenced file docs\7-execution-plan.md
+  ⎿  Read frontend\src\pages\SettingsPage.test.tsx (130 lines)
+  ⎿  Read frontend\src\components\LanguageSelect.tsx (21 lines)
+  ⎿  Read frontend\src\pages\SettingsPage.tsx (138 lines)
+  ⎿  Read frontend\src\stores\uiStore.test.ts (76 lines)
+  ⎿  Skills restored (frontend-resolver, backend-resolver)
+
+❯ /usage 
+  ⎿  Settings dialog dismissed
+
+❯ /usage 
+  ⎿  Settings dialog dismissed
+
+❯ 카테고리 수정 태그                                                            
+  (<input aria-label="카테고리 이름 수정" class="flex-1 px-3 py-1.5 text-sm     
+  border border-primary rounded outline-none focus:ring-2                       
+  focus:ring-primary-light" type="text" value="개인">                           
+  )                                                                             
+                                                                                
+  카테고리 태그 (                                                               
+  <select id="category-filter" class="text-sm border border-gray-300 rounded-md 
+  px-2 py-1.5 outline-none focus:border-primary" aria-label="카테고리           
+  필터"><option value="">전체</option><option                                   
+  value="00000000-0000-0000-0000-000000000001">기본</option><option             
+  value="78fcbc1c-c371-4bc0-926e-51ab73b21c51">동아리</option><option           
+  value="2085d89e-bbc4-4182-810b-0c14b33d1143">개이</option></select>           
+  )                                                                             
+                                                                                
+  에서 표시되는 글자 색깔을 class="text-sm text-gray-500으로 변경해줘           
+
+● CategoryPage.tsx 파일을 찾아 수정하겠습니다.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+  ⎿  Loaded frontend\CLAUDE.md
+
+● 이제 카테고리 필터 select가 있는 TodoListPage.tsx도 확인하겠습니다.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+● 두 곳 모두 수정하겠습니다.
+
+● Update(frontend\src\pages\CategoryPage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      170                                if (e.key === 'Escape') cancelEd
+           it();
+      171                              }}
+      172                              aria-label={t('category.editInputL
+           abel')}
+      173 -                            className="flex-1 px-3 py-1.5 text
+          --sm border border-primary rounded outline-none focus:ring-2 fo
+          -cus:ring-primary-light"                                       
+      173 +                            className="flex-1 px-3 py-1.5 text
+          +-sm text-gray-500 border border-primary rounded outline-none f
+          +ocus:ring-2 focus:ring-primary-light"                         
+      174                              autoFocus
+      175                            />
+      176                            <button
+
+● Update(frontend\src\pages\TodoListPage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      119                id="category-filter"
+      120                value={filters.category_id ?? ''}
+      121                onChange={(e) => setCategoryFilter(e.target.valu
+           e)}
+      122 -              className="text-sm border border-gray-300 rounde
+          -d-md px-2 py-1.5 outline-none focus:border-primary"           
+      122 +              className="text-sm text-gray-500 border border-g
+          +ray-300 rounded-md px-2 py-1.5 outline-none focus:border-prima
+          +ry"                                                           
+      123                aria-label="카테고리 필터"
+      124              >
+      125                <option value="">{t('todo.filterAll')}</option>
+
+● 두 파일 모두 수정 완료했습니다.
+
+  - CategoryPage.tsx (카테고리 이름 수정 input): text-gray-500 추가
+  - TodoListPage.tsx (카테고리 필터 select): text-gray-500 추가
+
+✻ Brewed for 20s
+
+❯ 변경한 내용을 docs의 10-stype-guide.md에 변경 반영해야 하지 않을까?           
+
+  Read 1 file (ctrl+o to expand)
+
+● 스타일 가이드의 5.4 입력 필드 섹션과 컴포넌트 빠른 참조에 반영하겠습니다.
+  인라인 수정 입력과 select 요소가 text-gray-500을 사용한다는 내용이 누락되어
+  있습니다.
+
+● Update(docs\10-style-guide.md)
+  ⎿  Added 6 lines
+      356    color: var(--color-danger);
+      357    margin-top: 4px;
+      358  }
+      359 +                                                              
+      360 +/* 인라인 수정 입력 / Select — 보조 텍스트 색상 사용 */       
+      361 +.input-inline,                                                
+      362 +select {                                                      
+      363 +  color: var(--color-text-tertiary);  /* #8B95A1 — text-gray-5
+          +00 */                                                         
+      364 +}                                                             
+      365  ```
+      366  
+      367  ### 5.5 상태 배지 (Status Badge)
+
+● Update(docs\10-style-guide.md)
+  ⎿  Added 2 lines
+      746  [버튼 취소]         bg-white border text-gray-700
+      747  [버튼 삭제]         bg-red-50 border-red-200 text-danger
+      748  [입력 포커스링]     ring-2 ring-primary-light border-primary
+      749 +[인라인 수정 입력]  text-gray-500 border-primary (full form in
+          +put은 text-gray-900)                                          
+      750 +[필터 select]       text-gray-500 border-gray-300             
+      751  [기한초과 행]       border-l-4 border-danger bg-red-50
+      752  [오늘 날짜]         text-primary font-bold
+      753  ```
+
+● 반영 완료했습니다. 변경 내용:
+
+  - 5.4 입력 필드 — 인라인 수정 input과 select 요소는 color: 
+  var(--color-text-tertiary) (text-gray-500) 사용 명시
+  - 컴포넌트 빠른 참조 — [인라인 수정 입력], [필터 select] 항목 추가 (일반 form
+  input과의 차이 명확화)
+
+✻ Cooked for 33s
+❯ 변경 내용 commit하고 push해줘                                                 
+
+● Bash(git -C "C:\_vibe\todolist" diff --stat)
+  ⎿  warning: in the working copy of 'docs/10-style-guide.md', LF will be r
+     eplaced by CRLF the next time Git touches it
+     warning: in the working copy of 'frontend/src/pages/CategoryPage.tsx',
+     … +10 lines (ctrl+o to expand)
+
+● Bash(git -C "C:\_vibe\todolist" add docs/10-style-guide.md
+      frontend/src/pages/CategoryPage.tsx frontend/src/pages/TodoListPage.tsx &&
+      git -C "C:\_vibe\todolist" comm…)
+  ⎿  warning: in the working copy of 'docs/10-style-guide.md', LF will be r
+     eplaced by CRLF the next time Git touches it
+     warning: in the working copy of 'frontend/src/pages/CategoryPage.tsx',
+     … +6 lines (ctrl+o to expand)
+
+● Bash(git -C "C:\_vibe\todolist" push origin main)
+  ⎿  To https://github.com/gwiyongjung-cell/todolist
+        f42dc7d..edad9c6  main -> main
+
+● 완료했습니다.
+
+  - 커밋: edad9c6 — 3개 파일 변경
+  - push: origin/main 반영 완료
+
+✻ Sautéed for 17s
+
+❯ 다음 태스크는 뭐가 있어?                                                      
+
+  Read 1 file (ctrl+o to expand)
+
+● 실행 계획 상 DB-01~03, BE-01~07, FE-01~08 모든 태스크가 완료 [x] 처리되어
+  있습니다.
+
+  계획 문서 기준으로 남은 태스크는 없습니다. MVP 개발이 전부 끝난 상태입니다.
+
+  다음 단계가 필요하다면 아래 중 하나를 고려해볼 수 있습니다:
+
+  - 배포 — Docker 이미지 빌드, EC2/Railway 등 서버 배포
+  - E2E 테스트 — Playwright로 전체 흐름 자동화 테스트
+  - 추가 기능 — PRD에 없는 기능 추가 (검색, 정렬, 드래그&드롭 등)
+  - 성능/접근성 개선 — Lighthouse 감사, 반응형 모바일 보완
+
+  어떤 방향으로 진행할지 알려주세요.
+
+✻ Baked for 8s
+
+❯ /usage 
+  ⎿  Settings dialog dismissed
+
+❯ 다국어지원과 dark mode/light mode 선택 기능을 추가하고 싶은데, 어떤 작업      
+  순서로 해야 하는지 알려줘                                                     
+
+● 해당 기능들은 이미 FE-08에서 구현 완료되어 있습니다.
+
+  현재 구현된 내용:
+
+  ┌────────────────────────┬────────────────────────────────────────┬───────┐
+  │          기능          │               구현 위치                │ 상태  │
+  ├────────────────────────┼────────────────────────────────────────┼───────┤
+  │ 다국어 지원            │ src/i18n.ts, src/locales/ko.json,      │ ✅    │
+  │ (한국어/영어)          │ src/locales/en.json                    │ 완료  │
+  ├────────────────────────┼────────────────────────────────────────┼───────┤
+  │ 언어 선택 UI           │ SettingsPage.tsx, LanguageSelect.tsx   │ ✅    │
+  │                        │                                        │ 완료  │
+  ├────────────────────────┼────────────────────────────────────────┼───────┤
+  │ 다크/라이트 모드 토글  │ src/stores/uiStore.ts, src/index.css   │ ✅    │
+  │                        │                                        │ 완료  │
+  ├────────────────────────┼────────────────────────────────────────┼───────┤
+  │ 테마 선택 UI           │ SettingsPage.tsx                       │ ✅    │
+  │                        │                                        │ 완료  │
+  ├────────────────────────┼────────────────────────────────────────┼───────┤
+  │ 로그인 시 저장된 설정  │ LoginPage.tsx (syncFromUser)           │ ✅    │
+  │ 자동 적용              │                                        │ 완료  │
+  └────────────────────────┴────────────────────────────────────────┴───────┘
+
+  앱에서 /settings 경로로 이동하면 사용할 수 있습니다.
+
+  혹시 다른 플랫폼(백엔드 어드민, 별도 앱 등) 에 추가하려는 건지, 아니면 현재
+  구현에서 동작하지 않는 부분이 있는 건지 알려주시면 더 정확하게 도움드릴 수
+  있습니다.
+
+✻ Cogitated for 11s
+
+※ recap: TodoList 풀스택 앱의 모든 태스크(DB-01~03, BE-01~07, FE-01~08)가 완료되어 origin/main에 push된 상태입니다. 사용자가 다음 작업을 요청하면 진행하면 됩니다. (disable recaps in /config)
+
+❯ 반응형 모바일 보완해줘                                                        
+
+● 현재 코드를 분석하고 작업 계획을 수립하겠습니다.
+
+● Explore(모바일 반응형 현황 분석)
+  ⎿  Done (13 tool uses · 67.9k tokens · 41s)
+  (ctrl+o to expand)
+
+● 분석 완료했습니다. 수정이 필요한 파일들을 읽어서 일괄 적용하겠습니다.
+
+  Read 6 files (ctrl+o to expand)
+
+● 이제 파악한 문제들을 일괄 수정하겠습니다.
+
+  수정 대상:
+  1. TodoListPage — 헤더 네비 모바일 압축, 삭제 버튼 터치 영역 확대
+  2. TodoFormPage — 날짜 그리드 모바일에서 1열
+  3. LanguageSelect — 터치 영역 너무 작음
+  4. CategoryPage — 수정/삭제 버튼 터치 영역 확대
+  5. Button — 기본 높이 44px 기준으로 상향
+  6. LoginPage / RegisterPage — 카드 패딩 모바일 최적화
+
+● Update(frontend\src\pages\TodoListPage.tsx)
+  ⎿  Added 5 lines, removed 5 lines
+       77        <header className="bg-white border-b border-gray-200 sti
+           cky top-0 z-10">
+       78          <div className="max-w-3xl mx-auto px-4 h-14 flex items
+           -center justify-between">
+       79            <h1 className="text-lg font-bold text-primary">{t('c
+           ommon.appName')}</h1>
+       80 -          <nav className="flex items-center gap-2">           
+       80 +          <nav className="flex items-center gap-0.5 sm:gap-2">
+       81              <button
+       82                onClick={() => navigate('/categories')}
+       83 -              className="text-sm text-gray-500 hover:text-gray
+          --700 px-2 py-1"                                               
+       83 +              className="text-xs sm:text-sm text-gray-500 hove
+          +r:text-gray-700 px-2 py-2 sm:px-2 sm:py-1"                    
+       84              >
+       85                {t('nav.categories')}
+       86              </button>
+       87              <button
+       88                onClick={() => navigate('/profile')}
+       89 -              className="text-sm text-gray-500 hover:text-gray
+          --700 px-2 py-1"                                               
+       89 +              className="text-xs sm:text-sm text-gray-500 hove
+          +r:text-gray-700 px-2 py-2 sm:px-2 sm:py-1"                    
+       90              >
+       91                {t('nav.profile')}
+       92              </button>
+       93              <button
+       94                onClick={() => navigate('/settings')}
+       95 -              className="text-sm text-gray-500 hover:text-gray
+          --700 px-2 py-1"                                               
+       95 +              className="text-xs sm:text-sm text-gray-500 hove
+          +r:text-gray-700 px-2 py-2 sm:px-2 sm:py-1"                    
+       96              >
+       97                {t('nav.settings')}
+       98              </button>
+       99              <button
+      100                onClick={handleLogout}
+      101 -              className="text-sm text-gray-500 hover:text-dang
+          -er px-2 py-1"                                                 
+      101 +              className="text-xs sm:text-sm text-gray-500 hove
+          +r:text-danger px-2 py-2 sm:px-2 sm:py-1"                      
+      102                aria-label={t('auth.logout')}
+      103              >
+      104                {t('auth.logout')}
+
+● Update(frontend\src\pages\TodoListPage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      216                          handleDelete(todo.id, todo.title);
+      217                        }}
+      218                        aria-label={`${todo.title} 삭제`}
+      219 -                      className="text-xs text-gray-400 hover:t
+          -ext-danger px-1"                                              
+      219 +                      className="text-xs text-gray-400 hover:t
+          +ext-danger p-2"                                               
+      220                      >
+      221                        {t('todo.deleteButton')}
+      222                      </button>
+
+● Update(frontend\src\pages\TodoFormPage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      161              </div>
+      162  
+      163              {/* 날짜 */}
+      164 -            <div className="grid grid-cols-2 gap-4">          
+      164 +            <div className="grid grid-cols-1 sm:grid-cols-2 ga
+          +p-3 sm:gap-4">                                                
+      165                <DatePicker
+      166                  label={t('todo.startDate')}
+      167                  value={startDate}
+
+● Update(frontend\src\components\LanguageSelect.tsx)  ⎿  Added 1 line, removed 1 line
+      11        value={language}
+      12        onChange={(e) => setLanguage(e.target.value)}
+      13        aria-label="언어 선택"
+      14 -      className="text-xs text-gray-500 border border-gray-200 r
+         -ounded px-2 py-1 outline-none focus:border-primary"            
+      14 +      className="text-sm text-gray-500 border border-gray-200 r
+         +ounded px-3 py-2 outline-none focus:border-primary"            
+      15      >
+      16        <option value="ko">{t('settings.languageKo')}</option>
+      17        <option value="en">{t('settings.languageEn')}</option>
+
+● Update(frontend\src\components\Button.tsx)
+  ⎿  Added 1 line, removed 1 line
+      31        type={type}
+      32        onClick={onClick}
+      33        disabled={disabled || loading}
+      34 -      className={`w-full flex items-center justify-center gap-2
+         - px-5 py-2.5 rounded-md text-sm font-semibold transition-colors
+         - ${variantClass[variant]} ${className}`}                       
+      34 +      className={`w-full flex items-center justify-center gap-2
+         + px-5 py-3 rounded-md text-sm font-semibold transition-colors $
+         +{variantClass[variant]} ${className}`}                         
+      35      >
+      36        {loading && (
+      37          <span className="inline-block w-4 h-4 border-2 border-c
+          urrent border-t-transparent rounded-full animate-spin" />
+
+● Update(frontend\src\pages\CategoryPage.tsx)
+  ⎿  Added 2 lines, removed 2 lines
+      176                            <button
+      177                              onClick={() => handleUpdate(cat.id
+           )}
+      178                              disabled={updateMutation.isPending
+           }
+      179 -                            className="text-sm text-primary fo
+          -nt-medium hover:underline disabled:opacity-50"                
+      179 +                            className="text-sm text-primary fo
+          +nt-medium hover:underline disabled:opacity-50 px-2 py-2"      
+      180                            >
+      181                              {t('category.saveEdit')}
+      182                            </button>
+      183                            <button
+      184                              onClick={cancelEdit}
+      185 -                            className="text-sm text-gray-500 h
+          -over:underline"                                               
+      185 +                            className="text-sm text-gray-500 h
+          +over:underline px-2 py-2"                                     
+      186                            >
+      187                              {t('category.cancelEdit')}
+      188                            </button>
+
+● Update(frontend\src\pages\CategoryPage.tsx)
+  ⎿  Added 2 lines, removed 2 lines
+      203                            onClick={() => isDefault ? setAction
+           Error(t('category.defaultModifyError')) : startEdit(cat.id, ca
+           t.name)}
+      204                            disabled={isDefault}
+      205                            aria-label={`${cat.name} 수정`}
+      206 -                          className="text-sm text-gray-500 hov
+          -er:text-info disabled:opacity-30 disabled:cursor-not-allowed" 
+      206 +                          className="text-sm text-gray-500 hov
+          +er:text-info disabled:opacity-30 disabled:cursor-not-allowed p
+          +-2"                                                           
+      207                          >
+      208                            {t('common.edit')}
+      209                          </button>
+     ...
+      211                            onClick={() => isDefault ? setAction
+           Error(t('category.defaultDeleteError')) : handleDelete(cat.id)
+           }
+      212                            disabled={isDefault || deleteMutatio
+           n.isPending}
+      213                            aria-label={`${cat.name} 삭제`}
+      214 -                          className="text-sm text-gray-500 hov
+          -er:text-danger disabled:opacity-30 disabled:cursor-not-allowed
+          -"                                                             
+      214 +                          className="text-sm text-gray-500 hov
+          +er:text-danger disabled:opacity-30 disabled:cursor-not-allowed
+          + p-2"                                                         
+      215                          >
+      216                            {t('common.delete')}
+      217                          </button>
+
+● Update(frontend\src\pages\LoginPage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      48  
+      49    return (
+      50      <div className="min-h-screen bg-gray-100 flex items-center 
+          justify-center px-4">
+      51 -      <div className="w-full max-w-sm bg-white rounded-lg shado
+         -w-md p-8">                                                     
+      51 +      <div className="w-full max-w-sm bg-white rounded-lg shado
+         +w-md p-6 sm:p-8">                                              
+      52          <h1 className="text-2xl font-bold text-primary text-cen
+          ter mb-1">{t('common.appName')}</h1>
+      53          <h2 className="text-lg font-semibold text-gray-900 text
+          -center mb-6">{t('auth.login')}</h2>
+      54  
+
+● Update(frontend\src\pages\RegisterPage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      53  
+      54    return (
+      55      <div className="min-h-screen bg-gray-100 flex items-center 
+          justify-center px-4">
+      56 -      <div className="w-full max-w-sm bg-white rounded-lg shado
+         -w-md p-8">                                                     
+      56 +      <div className="w-full max-w-sm bg-white rounded-lg shado
+         +w-md p-6 sm:p-8">                                              
+      57          <h1 className="text-2xl font-bold text-primary text-cen
+          ter mb-1">{t('common.appName')}</h1>
+      58          <h2 className="text-lg font-semibold text-gray-900 text
+          -center mb-6">{t('auth.register')}</h2>
+      59  
+
+● 수정 완료했습니다. 변경 내용 요약:
+
+  ┌─────────────────────────┬───────────────────────────────────────────────┐
+  │          파일           │                   수정 내용                   │
+  ├─────────────────────────┼───────────────────────────────────────────────┤
+  │                         │ 헤더 네비 버튼 text-xs sm:text-sm, gap-0.5    │
+  │ TodoListPage.tsx        │ sm:gap-2 — 모바일에서 압축. 삭제 버튼 px-1 →  │
+  │                         │ p-2                                           │
+  ├─────────────────────────┼───────────────────────────────────────────────┤
+  │ TodoFormPage.tsx        │ 날짜 그리드 grid-cols-1 sm:grid-cols-2 —      │
+  │                         │ 모바일에서 1열 세로 배치                      │
+  ├─────────────────────────┼───────────────────────────────────────────────┤
+  │ LanguageSelect.tsx      │ text-xs px-2 py-1 → text-sm px-3 py-2 — 터치  │
+  │                         │ 영역 확대                                     │
+  ├─────────────────────────┼───────────────────────────────────────────────┤
+  │ Button.tsx              │ py-2.5 → py-3 — 44px 터치 기준 충족           │
+  ├─────────────────────────┼───────────────────────────────────────────────┤
+  │ CategoryPage.tsx        │ 수정/삭제 버튼 p-2 추가 — 터치 영역 확대      │
+  ├─────────────────────────┼───────────────────────────────────────────────┤
+  │ LoginPage.tsx /         │ 카드 패딩 p-6 sm:p-8 — 모바일에서 좌우 여백   │
+  │ RegisterPage.tsx        │ 확보                                          │
+  └─────────────────────────┴───────────────────────────────────────────────┘
+
+✻ Sautéed for 2m 30s
+
+※ recap: 반응형 모바일 보완 작업을 완료했습니다. 변경사항을 commit하고 push하면 됩니다. (disable recaps in /config)
+
+❯ 변경 내용 commit하고 push해줘                                                 
+
+● Bash(git -C "C:\_vibe\todolist" diff --stat)
+  ⎿  warning: in the working copy of 'frontend/src/components/Button.tsx',
+     LF will be replaced by CRLF the next time Git touches it
+     warning: in the working copy of 'frontend/src/components/LanguageSelec
+     … +19 lines (ctrl+o to expand)
+
+● Bash(git -C "C:\_vibe\todolist" add frontend/src/components/Button.tsx
+      frontend/src/components/LanguageSelect.tsx
+      frontend/src/pages/CategoryPage.tsx frontend/src/pa…)
+  ⎿  warning: in the working copy of 'frontend/src/components/Button.tsx',
+     LF will be replaced by CRLF the next time Git touches it
+     warning: in the working copy of 'frontend/src/components/LanguageSelec
+     … +12 lines (ctrl+o to expand)
+
+● Bash(git -C "C:\_vibe\todolist" push origin main)
+  ⎿  To https://github.com/gwiyongjung-cell/todolist
+        edad9c6..5db45df  main -> main
+
+● 완료했습니다.
+
+  - 커밋: 5db45df — 7개 파일 변경
+  - push: origin/main 반영 완료
+
+✻ Crunched for 13s
+
+❯ 현재 백엔드, 프론트엔드가 개발서버로 실행중이야. 다음 조건을 검토해서 e2e     
+  테스트를 수행해줘                                                             
+  - Playwright MCP 도구를 사용할 것                                             
+  - 테스트 도중 엣지케이스, 주요 화면별로 화면캡쳐할 것                         
+  - 테스트 결과는 test/e2e 디렉토리에 리포트형식으로 작성할 것                  
+  - 리포트에는 화면 캡쳐한 내용을 포함시킬 것                                   
+
+● E2E 테스트를 시작합니다. 먼저 스크린샷 저장 디렉토리를 만들고 테스트를
+  진행하겠습니다.
+
+● Bash(mkdir -p "C:\_vibe\todolist\test\e2e\screenshots")
+  ⎿  Done
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● TC-01: 로그인 페이지 초기 접속 확인 ✅
+
+  이제 엣지케이스 — 빈 폼 제출 테스트합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● TC-02: 빈 폼 제출 유효성 검사 ✅ — 잘못된 자격증명 테스트합니다.
+
+  Called playwright 3 times (ctrl+o to expand)
+
+● TC-03: 잘못된 자격증명 에러 표시 ✅ — 회원가입 페이지로 이동합니다.
+
+  Called playwright 4 times (ctrl+o to expand)
+
+● TC-04·05: 회원가입 페이지 초기 접속 / 빈 폼 유효성 검사 ✅ — 정상 회원가입을
+  진행합니다.
+  Called playwright 3 times (ctrl+o to expand)
+
+● TC-06: 회원가입 성공 → /login 리다이렉트 ✅ — 중복 이메일 엣지케이스를
+  테스트합니다.
+
+  Called playwright 4 times (ctrl+o to expand)
+
+● TC-07: 중복 이메일 회원가입 차단 ✅ — 정상 로그인을 진행합니다.
+
+  Called playwright 4 times (ctrl+o to expand)
+
+● TC-08: 로그인 성공 → /todos 리다이렉트 ✅ — 할일 등록을 테스트합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● 빈 폼 제출 엣지케이스를 먼저 테스트합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● TC-09: 할일 제목 필수 유효성 검사 ✅ — 날짜 역전 엣지케이스를 테스트합니다.
+
+  Called playwright 5 times (ctrl+o to expand)
+
+● TC-10: 종료일 < 시작일 날짜 역전 오류 ✅ — 정상 할일 3개를 등록합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● 두 번째 할일을 등록합니다.
+
+  Called playwright 4 times (ctrl+o to expand)
+
+● 세 번째 할일을 등록합니다.
+
+  Called playwright 5 times (ctrl+o to expand)
+
+● TC-11: 할일 3개 등록 및 목록 표시 ✅ — 기한 초과 필터를 테스트합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● TC-12: 기한 초과 필터 ✅ — 상태 필터 테스트합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● TC-13: 상태 필터 (대기) ✅ — 할일 수정 및 DONE 상태 전환 엣지케이스를
+  테스트합니다.
+
+  Called playwright (ctrl+o to expand)
+
+● 할일 3 (완료 예정)을 클릭해서 수정 폼으로 진입합니다.
+
+  Called playwright 3 times (ctrl+o to expand)
+
+● 상태를 DONE으로 변경합니다 (대기→진행중→완료 순으로).
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● 진행중으로 변경 후 다시 수정해서 DONE으로 전환합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● 할일 3을 클릭해 DONE으로 전환합니다.
+
+  Called playwright 4 times (ctrl+o to expand)
+
+● DONE 상태로 변경된 할일을 다시 열어서 상태 전환 차단 엣지케이스를
+  테스트합니다.
+
+  Called playwright 3 times (ctrl+o to expand)
+
+● TC-14: DONE 상태 잠금 UI 확인 ✅ — 할일 삭제를 테스트합니다.
+  Called playwright 3 times (ctrl+o to expand)
+
+● 할일 1 삭제를 테스트합니다 (confirm 다이얼로그 포함).
+
+  Called playwright 4 times (ctrl+o to expand)
+
+● TC-15: 할일 삭제 confirm 후 제거 ✅ — 카테고리 관리를 테스트합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● TC-16: 카테고리 목록 페이지 ✅ — 기본 카테고리 수정/삭제 차단 엣지케이스를
+  테스트합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● disabled 버튼은 클릭 불가 — 의도된 동작 확인 ✅. 카테고리를 새로 추가합니다.
+
+  Called playwright 3 times (ctrl+o to expand)
+
+● TC-17: 카테고리 추가 ✅ — 카테고리 수정을 테스트합니다.
+
+  Called playwright 6 times (ctrl+o to expand)
+
+● TC-18: 카테고리 이름 수정 ✅ — 카테고리 삭제를 테스트합니다.
+
+  Called playwright 3 times (ctrl+o to expand)
+
+● TC-19: 카테고리 삭제 ✅ — 내 정보 수정을 테스트합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● 빈 이름 제출 엣지케이스 테스트합니다.
+
+  Called playwright 4 times (ctrl+o to expand)
+
+● TC-20: 프로필 빈 이름 유효성 검사 ✅ — 이름 수정 성공을 테스트합니다.
+
+  Called playwright 3 times (ctrl+o to expand)
+
+● TC-21: 프로필 이름 수정 성공 메시지 ✅ — 환경설정 페이지를 테스트합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● 다크 모드로 전환합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● 영어로 언어를 변경합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● 저장 버튼을 눌러 설정을 저장합니다.
+
+  Called playwright 2 times (ctrl+o to expand)
+
+● TC-22·23·24: 다크모드 전환 / 영어 전환 / 설정 저장 성공 ✅ —
+  한국어·라이트모드로 복원 후 로그아웃을 테스트합니다.
+
+  Called playwright 3 times (ctrl+o to expand)
+
+● 이제 로그아웃을 테스트합니다.
+
+  Called playwright 3 times (ctrl+o to expand)
+
+● TC-25: 로그아웃 → /login 리다이렉트 ✅ — 마지막으로 비인증 상태에서 보호
+  라우트 접근 차단을 검증합니다.
+  Called playwright 2 times (ctrl+o to expand)
+
+● TC-26: 비인증 상태 보호 라우트 차단 ✅ — 모든 테스트 완료. 리포트를
+  작성합니다.
+
+● Write(test\e2e\report.md)
+  ⎿  Wrote 261 lines to test\e2e\report.md
+      1 # E2E 테스트 리포트
+      2 
+      3 **작성일**: 2026-05-29  
+      4 **테스트 환경**: Playwright MCP  
+      5 **프론트엔드**: http://localhost:5173 (Vite dev server)  
+      6 **백엔드**: http://localhost:3000 (Express)  
+      7 **테스트 계정**: e2etest@example.com / Test1234!
+      8 
+      9 ---
+     … +270 lines (ctrl+o to expand)
+
+● E2E 테스트 완료. 결과를 요약합니다.
+
+  ---
+  테스트 결과: ✅ 26 / 26 통과
+
+  ┌───────────────┬───────┬──────────────┐
+  │     구분      │ TC 수 │     결과     │
+  ├───────────────┼───────┼──────────────┤
+  │ 인증 플로우   │ 7     │ ✅ 전원 통과 │
+  ├───────────────┼───────┼──────────────┤
+  │ 할일 관리     │ 8     │ ✅ 전원 통과 │
+  ├───────────────┼───────┼──────────────┤
+  │ 카테고리 관리 │ 4     │ ✅ 전원 통과 │
+  ├───────────────┼───────┼──────────────┤
+  │ 내 정보 수정  │ 2     │ ✅ 전원 통과 │
+  ├───────────────┼───────┼──────────────┤
+  │ 환경설정      │ 3     │ ✅ 전원 통과 │
+  ├───────────────┼───────┼──────────────┤
+  │ 라우팅 가드   │ 2     │ ✅ 전원 통과 │
+  └───────────────┴───────┴──────────────┘
+
+  검증된 엣지케이스:
+  - 빈 폼 제출, 잘못된 자격증명, 중복 이메일 → 각각 오류 메시지 정상 표시
+  - 날짜 역전(종료일 < 시작일) → 저장 차단
+  - DONE 상태 할일 → 상태 변경 UI 비활성화
+  - 기본 카테고리 수정/삭제 버튼 → disabled 처리
+  - 비인증 상태 /todos 직접 접근 → /login 강제 리다이렉트
+
+  리포트 및 스크린샷 29장이 test/e2e/ 디렉토리에 저장되었습니다.
+
+✻ Crunched for 8m 4s
+
+※ recap: E2E 테스트 26개 전원 통과 완료. test/e2e/report.md에 스크린샷 29장 포함한 리포트 작성됨. 변경사항을 commit/push하면 됩니다.
+
+❯ 변경사항을 commit하고 push 해줘                                               
+
+● Bash(git -C "C:\_vibe\todolist" status)
+  ⎿  On branch main
+     Your branch is up to date with 'origin/main'.
+     … +14 lines (ctrl+o to expand)
+
+● Bash(git -C "C:\_vibe\todolist" add test/ && git -C "C:\_vibe\todolist" commit
+      -m "$(cat <<'EOF'
+      test: Playwright E2E 테스트 리포트 및 스크린샷 추가 (26개 TC 전원 통과)…)
+  ⎿  warning: in the working copy of 'test/e2e/report.md', LF will be repla
+     ced by CRLF the next time Git touches it
+     [main 1e8f1ff] test: Playwright E2E 테스트 리포트 및 스크린샷 추가 (26
+     … +30 lines (ctrl+o to expand)
+
+● Bash(git -C "C:\_vibe\todolist" push origin main)
+  ⎿  To https://github.com/gwiyongjung-cell/todolist
+        5db45df..1e8f1ff  main -> main
+
+● 완료했습니다.
+
+  - 커밋: 1e8f1ff — 30개 파일 (리포트 1 + 스크린샷 29장)
+  - push: origin/main 반영 완료
+
+✻ Crunched for 14s
+
+※ recap: E2E 테스트 26개 전원 통과 후 리포트와 스크린샷을 commit/push까지 완료했습니다. 다음 작업은 사용자 지시 대기 중입니다.
+
+❯ /usage 
+  ⎿  Settings dialog dismissed
+
+❯ /usage 
+  ⎿  Settings dialog dismissed
+
+❯ 지금까지 나눈 대화내용 전체를 export 하고 싶은대. reset 되기 전까지 토큰      
+  용량이 충분할까?                                                              
+
+● 현재 세션은 이미 한 번 컨텍스트 압축(compaction)이 발생한 상태입니다. 토큰
+  잔량을 직접 확인할 수는 없지만, E2E 테스트 구간에서 많은 도구 호출이 있었기
+  때문에 추가 압축이 임박했을 가능성이 높습니다.
+
+  대화 내용은 Claude Code가 JSONL 형식으로 자동 저장합니다.
+
+  Searched memories (ctrl+o to expand)
+
+● 대화 파일 위치를 확인했습니다. 현재 세션 파일은:
+
+  C:\Users\student\.claude\projects\C---vibe-todolist\1f09ff25-0bd1-4b30-bb25-b1
+  edd2827df2.jsonl
+
+  이전 세션(FE-07~08, commit/push까지):
+  C:\Users\student\.claude\projects\C---vibe-todolist\795031d5-127b-4c0e-9d4f-be
+  65803c428a.jsonl
+
+  ---
+  export 방법:
+
+  터미널에서 아래 명령어로 읽을 수 있는 형태로 변환할 수 있습니다:
+
+  # 현재 세션 내용 확인
+  Get-Content "C:\Users\student\.claude\projects\C---vibe-todolist\1f09ff25-0bd1
+  -4b30-bb25-b1edd2827df2.jsonl"
+
+  또는 Claude Code UI에서 Cmd/Ctrl+E 단축키로 대화 export 기능을 사용할 수
+  있습니다.
+
+  ---
+  토큰 잔량에 대해:
+
+  이미 한 번 압축이 발생했고 현재 세션에서도 E2E 테스트로 도구 호출이 많았기
+  때문에, export가 필요하다면 지금 바로 하는 것을 권장합니다. 다음 압축 시 이전
+  내용 일부는 요약으로 대체됩니다.
+
+✻ Brewed for 23s
