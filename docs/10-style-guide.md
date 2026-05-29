@@ -356,6 +356,12 @@ radius-pill 9999px — 필터 칩, 상태 배지
   color: var(--color-danger);
   margin-top: 4px;
 }
+
+/* 인라인 수정 입력 / Select — 보조 텍스트 색상 사용 */
+.input-inline,
+select {
+  color: var(--color-text-tertiary);  /* #8B95A1 — text-gray-500 */
+}
 ```
 
 ### 5.5 상태 배지 (Status Badge)
@@ -740,6 +746,8 @@ export default {
 [버튼 취소]         bg-white border text-gray-700
 [버튼 삭제]         bg-red-50 border-red-200 text-danger
 [입력 포커스링]     ring-2 ring-primary-light border-primary
+[인라인 수정 입력]  text-gray-500 border-primary (full form input은 text-gray-900)
+[필터 select]       text-gray-500 border-gray-300
 [기한초과 행]       border-l-4 border-danger bg-red-50
 [오늘 날짜]         text-primary font-bold
 ```

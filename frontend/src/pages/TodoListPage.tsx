@@ -119,7 +119,7 @@ export default function TodoListPage() {
               id="category-filter"
               value={filters.category_id ?? ''}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="text-sm border border-gray-300 rounded-md px-2 py-1.5 outline-none focus:border-primary"
+              className="text-sm text-gray-500 border border-gray-300 rounded-md px-2 py-1.5 outline-none focus:border-primary"
               aria-label="카테고리 필터"
             >
               <option value="">{t('todo.filterAll')}</option>

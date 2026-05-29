@@ -170,7 +170,7 @@ export default function CategoryPage() {
                               if (e.key === 'Escape') cancelEdit();
                             }}
                             aria-label={t('category.editInputLabel')}
-                            className="flex-1 px-3 py-1.5 text-sm border border-primary rounded outline-none focus:ring-2 focus:ring-primary-light"
+                            className="flex-1 px-3 py-1.5 text-sm text-gray-500 border border-primary rounded outline-none focus:ring-2 focus:ring-primary-light"
                             autoFocus
                           />
                           <button
